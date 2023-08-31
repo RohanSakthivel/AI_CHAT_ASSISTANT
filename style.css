@@ -1,0 +1,155 @@
+ /* Reset some default styles */
+ body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: seashell;
+   
+}
+
+/* Main container */
+.container {
+    display: flex;
+    height: 100vh;
+}
+.frame{
+    width:800px ;
+    height: 50px;
+    padding:10px ;
+    align-items: center;
+}
+.box{
+    background-color:transparent;
+    height:500px;
+    width: 500px;
+    padding:center 50%;
+    border-radius:20% ;
+}
+#image1{
+    height:400px ;
+    width: 590px;
+    border:solid 5px;
+}
+#image2{
+    height:400px ;
+    width: 590px;
+    border:solid 5px;
+}
+/* Sidebar */
+.sidebar {
+    width: 600px;
+    background-image: url(wood.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    /* Fixed width for the sidebar */
+    padding: 20px;
+}
+
+.sidebar h1 {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+.footer{
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+}
+/* Navbar */
+.navbar {
+    background-color:rgb(3, 24, 32);
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-content{
+    width:100% ;
+    background-image: url(images\ \(1\).jpeg);
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.navbar-toggle {
+    display: none; /* Hide the toggle button on larger screens */
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-toggle {
+        display: block; /* Show the toggle button on smaller screens */
+    }
+
+    .navbar ul {
+        display: none; /* Hide the navbar list on smaller screens */
+    }
+
+    .navbar.collapsed ul {
+        display: flex; /* Show the navbar list when collapsed */
+    }
+}
+
+/* Chat bot section */
+.chat-bot {
+    flex: 1; /* The chat bot section will take up the remaining space */
+    padding: 20px;
+}
+.chatbox-input {
+    position:relative;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    border-style: ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+
+  }
+  
+  .chatbox-input i {
+    cursor: pointer;
+    font-size: 1.8em;
+    color: #515855;
+  }
+  
+  .chatbox-input i:nth-child(1) {
+     margin: 15px;
+  }
+  
+  .chatbox-input i:last-child {
+    margin-right: 25px;
+  }
+  
+   .chatbox-input input {
+      position: relative;
+      width: 90%;
+      margin: 0 20px;
+      padding: 10px 20px;
+      border-radius:10px;
+      font-size: 1em;
+      border:none;
+      outline:none;
+   }
+   .boxx{
+    height:200px;
+    width:50% ;
+   }
+   #user-input{
+    width:500px;
+    border:solid 2px
+   }
+   #chatbox{
+    padding:100px;
+  margin:0 auto;
+  width:500px;
+  border:solid 2px ;
+  height:300px ;
+  overflow-y: scroll;
+  }

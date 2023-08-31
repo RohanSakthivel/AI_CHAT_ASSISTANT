@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Assistant</title>
+   <link rel="stylesheet" href="./style.css">
+   <link rel="stylesheet" href="style3.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h1 style=" border:solid 5px">VOICE ASSISTANT</h1>
+            
+                <div class="image-box">
+                    <img id="image1" src="Generated-video-unscreen (1).png" alt="Image 1">
+                    <img id="image2" src="Generated-video-unscreen.gif" style="display:none ;" alt="Image 2">
+                  </div>
+                  
+            
+            <!-- Add any sidebar content here -->
+        </div>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Navbar -->
+            <div class="navbar">
+                <h1>Chat Assistant</h1>
+                <!-- Navbar toggle button for smaller screens -->
+            </div> 
+
+            <!-- Chat bot section -->
+            
+            <div class="chat-bot">
+                <div id="chatbox">
+    
+                    <div id="chat"></div>
+                    <div id="message"></div>
+                </div>
+            </div>
+            <div class="frame">
+                <div class="chatbox-input">
+                    <i class="fa-regular fa-face-grin"></i>
+                    <i class="fa-sharp fa-solid fa-paperclip"></i>
+                    <img src="mic2-removebg-preview (1).png" id="startButtons"  style="height: 50px;width: 50px ;"></img>
+                    <input type="text" id="user-input" placeholder="Type your message here..." />
+                    <i class="fa-solid fa-microphone">
+                      <img src="sendicon.png" id="startButton" onclick="sendMessage()" style="height: 50px;width: 50px ;"></img>
+                      <audio id="audio"></audio>
+                    </i>
+                  </div>
+            </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="microphone.js"></script>
+    <script src="script.js"></script>
+    <script src="data.js"></script>
+    <script>
+    </script>
+    <script>
+        // Function to toggle the navbar on smaller screens
+        function toggleNavbar() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('collapsed');
+        }
+        function switchImage() {
+        var image1 = document.getElementById("image1");
+        var image2 = document.getElementById("image2");
+
+        if (image1.style.display === "none") {
+            image1.style.display = "block";
+            image2.style.display = "none";
+        } else {
+            image1.style.display = "none";
+            image2.style.display = "block";
+  }
+}
+   function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(utterance);
+      return new Promise((resolve) => {
+        utterance.onend = resolve;
+      });
+    }
+
+    // Function to show the first image and hide the second image
+    function showFirstImage() {
+      document.getElementById('image1').style.display = 'block';
+      document.getElementById('image2').style.display = 'none';
+    }
+
+    // Function to start speaking and toggle images
+    async function startSpeaking() {
+      document.getElementById('image1').style.display = 'none';
+      document.getElementById('image2').style.display = 'block';
+      await speak('if you have any doubts please text it or kindly refer the latest  IBM watson assistant!'); // Replace this text with your desired speech
+      showFirstImage(); // After speaking is over, show the first image again
+    }
+
+    // Event listener for the "Start Speaking" button
+    const startButton = document.getElementById('startButton');
+    startButton.addEventListener('click', startSpeaking);
+    </script>
+    <script>
+      window.watsonAssistantChatOptions = {
+        integrationID: "435e1658-827d-4707-a602-ebc6a924d916", // The ID of this integration.
+        region: "au-syd", // The region your integration is hosted in.
+        serviceInstanceID: "cf4ba009-fb6a-4c7e-9230-cb2b454ba4a5", // The ID of your service instance.
+        onLoad: function(instance) { instance.render(); }
+      };
+      setTimeout(function(){
+        const t=document.createElement('script');
+        t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+      });
+    </script>
+</body>
+
+</html>
